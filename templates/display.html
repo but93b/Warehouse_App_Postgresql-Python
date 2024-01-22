@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warehouse App - Display</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+            margin-top: 20px;
+        }
+
+        a {
+            display: block;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        .tables-container {
+            margin-top: 60px; /* Add space below the fixed button */
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 45%;
+            max-height: 400px; /* Set the maximum height */
+            overflow: auto; /* Add scroll if content exceeds the height */
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .tables-container {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center; /* Центрирование таблиц */
+            padding: 10px;
+        }
+    
+        .table-container {
+            max-height: 400px;
+            overflow-y: auto;
+            margin: 0 10px; /* Добавлено немного пространства между таблицами */
+            position: relative;
+        }
+    
+        .table-container table {
+            width: 100%;
+        }
+    
+        .table-container h1,
+        .table-container thead {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            margin: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+    
+        .table-container tbody {
+            display: block;
+            max-height: 320px;
+            overflow-y: auto;
+        }
+    
+        .table-container th,
+        .table-container td {
+            padding: 10px;
+            text-align: left;
+        }
+    
+        .table-container th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        button {
+            position: relative;
+            left: 60px;
+            top: 190px;
+            background-color: #FF0000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+
+            
+        }
+        
+        set-button {
+            position: relative;
+            left: 150px;
+            top: 170px;
+            background-color: #FF0000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+
+            
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Кнопка возврата на главную страницу -->
+    <a href="/">Вернуться к добавлению/списанию</a>
+
+    <!-- Кнопка для обнуления таблиц -->
+    <form action="/reset-tables" method="post">
+        <button class="reset-button" type="submit">ОБНУЛЕНИЕ ТАБЛИЦ</button>
+    </form>
+
+    <h1>Таблицы учёта</h1>
+
+    <div class="tables-container">
+    <div class="table-container">
+        <h1>Список товаров</h1>
+        <table>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Amount</th>
+            </tr>
+            {% for product in products %}
+                <tr>
+                    <td>{{ product[0] }}</td>
+                    <td>{{ product[1] }}</td>
+                    <td>{{ product[2] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div class="table-container">
+        <h1>История транзакций товаров</h1>
+        <table>
+            <tr>
+                <th>Product ID</th>
+                <th>Date and Time</th>
+                <th>Action Type</th>
+                <th>Product Name</th>
+                <th>Amount</th>
+            </tr>
+            {% for action in products_acts %}
+                <tr>
+                    <td>{{ action[0] }}</td>
+                    <td>{{ action[1] }}</td>
+                    <td>{{ action[2] }}</td>
+                    <td>{{ action[3] }}</td>
+                    <td>{{ action[4] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
