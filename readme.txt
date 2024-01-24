@@ -6,3 +6,6 @@
 Замените 'postgresql://postgres:postgres@localhost/Warehouse' на ваше соединение с базой данных PostgreSQL.
 Замените в app.py путь к template_folder='C:\\Users\\user\\Desktop\\Warehouse\\templates' на свой к папке с html файлами
 Запустите приложение с помощью python app.py и перейдите по адресу http://127.0.0.1:5000/ в вашем браузере. Вы сможете видеть текущий список товаров и добавлять новые.
+
+Демонстрация приложения
+https://youtu.be/DZy8w9Pz-vs
